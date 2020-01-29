@@ -18,3 +18,4 @@ VideoList.propTypes = {
 // import exampleVideoData from './data/exampleVideoData.js';
 
 export default VideoList;
+import VideoListEntry from '../components/VideoListEntry.js';
