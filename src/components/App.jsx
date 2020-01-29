@@ -7,7 +7,7 @@ var App = () => (
     </nav>
     <div className="row">
       <div className="col-md-7">
-        <div><h5><em>videoPlayer</em> view goes here</h5></div>
+        <VideoPlayer video={exampleVideoData[0]} />
       </div>
       <div className="col-md-5">
         <VideoList videos={[...exampleVideoData]} />
@@ -22,3 +22,4 @@ var App = () => (
 export default App;
 import VideoList from '../components/VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
+import VideoPlayer from '../components/VideoPlayer.js';
