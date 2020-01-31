@@ -17,15 +17,19 @@ class App extends React.Component {
     };
 
     this.onListItemClick = this.onListItemClick.bind(this);
+    this.fetchData = this.fetchData.bind(this);
 
   }
-  // declare
+  fetchData(dataArray) {
+    console.log('fetchedData data--->', dataArray);
+    this.setState({
+      videosInList: dataArray,
+      nowPlaying: dataArray[0]
+    });
+  }
+
   componentDidMount() {
-    searchYouTube({query: 'screaming goats', max: 5, key: YOUTUBE_API_KEY});
-    // this.setState({
-    //   videosInList: videosDataArray // something data.items
-    //   //   nowPlaying: sampleData.items[0]// something data.items[0]
-    // });
+    searchYouTube({query: 'screaming goats', max: 5, key: YOUTUBE_API_KEY}, this.fetchData);
   }
 
   onListItemClick(video) {

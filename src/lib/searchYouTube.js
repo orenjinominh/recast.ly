@@ -1,7 +1,6 @@
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 // As you've done with other modules, make searchYouTube available for consumption and pass it as a prop to your app
-var videosDataArray = [];
 
 var options = {
   query: '', //TBD, value of search input box
@@ -26,10 +25,6 @@ var searchYouTube = (options, callback) => {
     contentType: 'application/json',
     success: function(data) {
       console.log('data--->', data);
-      data.items.forEach(function(item) {
-        videosDataArray.push(item);
-      });
-      console.log('videosDataArray--->', videosDataArray);
       callback(data.items);
     },
 
