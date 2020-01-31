@@ -1,4 +1,4 @@
-import YOUTUBE_API_KEY from "../config/youtube.js";
+import YOUTUBE_API_KEY from '../config/youtube.js';
 
 var options = {
   query: '', //TBD, value of search input box
