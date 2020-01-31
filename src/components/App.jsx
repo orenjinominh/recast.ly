@@ -1,3 +1,9 @@
+import VideoList from '../components/VideoList.js';
+import exampleVideoData from '../data/exampleVideoData.js';
+import VideoPlayer from '../components/VideoPlayer.js';
+import Search from '../components/Search.js';
+import searchYouTube from '../lib/searchYouTube.js';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +28,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <Search />
           </div>
         </nav>
         <div className="row">
@@ -42,6 +48,3 @@ class App extends React.Component {
 // `var` declarations will only exist globally where explicitly defined
 
 export default App;
-import VideoList from '../components/VideoList.js';
-import exampleVideoData from '../data/exampleVideoData.js';
-import VideoPlayer from '../components/VideoPlayer.js';
