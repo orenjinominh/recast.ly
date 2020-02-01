@@ -1,8 +1,8 @@
 import VideoList from '../components/VideoList.js';
-import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from '../components/VideoPlayer.js';
 import Search from '../components/Search.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
+import exampleVideoData from '../data/exampleVideoData.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class App extends React.Component {
 
   fetchData(dataArray) {
     console.log('fetchedData data--->', dataArray);
+    console.log('first video --->', dataArray[0]);
     this.setState({
       videosInList: dataArray,
       nowPlaying: dataArray[0]
@@ -54,7 +55,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search onInputChange={this.onInputChange}  />
+            <Search onInputChange={this.onInputChange} />
           </div>
         </nav>
         <div className="row">
