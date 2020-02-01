@@ -14,7 +14,7 @@ class App extends React.Component {
     };
 
     this.onListItemClick = this.onListItemClick.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
+    this.onInputChange = _.debounce(this.onInputChange.bind(this), 500);
     // this.onButtonClick = this.onButtonClick.bind(this);
     this.fetchData = this.fetchData.bind(this);
 
@@ -38,13 +38,12 @@ class App extends React.Component {
     });
   }
 
-  onInputChange(e) { 
-    var searchedText = this.props.searchYouTube({query: e.target.value, max: 5, key: YOUTUBE_API_KEY}, this.fetchData); // fetchData is updating videoList and nowPlaying automatically
-    _.debounce(searchedText, 500, {leading: false, trailing: true});  
+  onInputChange(inputValue) {
+    this.props.searchYouTube({query: inputValue, max: 5, key: YOUTUBE_API_KEY}, this.fetchData); // fetchData is updating videoList and nowPlaying automatically
   }
 
   // onButtonClick(event) {
-  //   // prevent default and clear input box 
+  //   // prevent default and clear input box
   //   event.preventDefault();
   //   document.getElementById('inputBox').reset();
   //   this.onInputChange(document.getElementById('inputBox').value);
@@ -55,7 +54,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search onInputChange={this.onInputChange}  /> 
+            <Search onInputChange={this.onInputChange}  />
           </div>
         </nav>
         <div className="row">

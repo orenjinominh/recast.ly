@@ -2,7 +2,7 @@ import searchYouTube from '../lib/searchYouTube.js';
 
 var Search = (props) => (
   <div className="search-bar form-inline">
-    <input className="form-control" type="text" id="inputBox" onChange={(e)=> props.onInputChange(e)}/>
+    <input className="form-control" type="text" id="inputBox" onChange={(event) => props.onInputChange(event.target.value)}/>
     <button className="btn hidden-sm-down" onClick={()=> props.onButtonClick()}>
       <span className="glyphicon glyphicon-search"></span>
     </button>
