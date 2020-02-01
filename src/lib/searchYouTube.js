@@ -1,7 +1,5 @@
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
-// As you've done with other modules, make searchYouTube available for consumption and pass it as a prop to your app
-
 var options = {
   query: '', //TBD, value of search input box
   max: 5,
