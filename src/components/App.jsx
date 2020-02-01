@@ -2,7 +2,7 @@ import VideoList from '../components/VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from '../components/VideoPlayer.js';
 import Search from '../components/Search.js';
-import searchYouTube from '../lib/searchYouTube.js';
+import YOUTUBE_API_KEY from '../config/youtube.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,20 @@ class App extends React.Component {
     };
 
     this.onListItemClick = this.onListItemClick.bind(this);
+    this.fetchData = this.fetchData.bind(this);
 
+  }
+
+  fetchData(dataArray) {
+    console.log('fetchedData data--->', dataArray);
+    this.setState({
+      videosInList: dataArray,
+      nowPlaying: dataArray[0]
+    });
+  }
+
+  componentDidMount() {
+    this.props.searchYouTube({query: 'screaming goats', max: 5, key: YOUTUBE_API_KEY}, this.fetchData);
   }
 
   onListItemClick(video) {
